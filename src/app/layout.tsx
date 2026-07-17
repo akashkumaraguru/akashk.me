@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins, Lora } from "next/font/google";
+import { Outfit, Lora } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const lora = Lora({
@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lora.variable} h-full antialiased`}
+      className={`${outfit.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#e8e6dc] text-[#1d1d1f]">
         {children}

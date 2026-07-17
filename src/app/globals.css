@@ -24,8 +24,8 @@
   --color-accent: var(--accent);
   --color-accent-blue: var(--accent-blue);
   --color-accent-green: var(--accent-green);
-  --font-sans: var(--font-poppins), -apple-system, BlinkMacSystemFont, "SF Pro", Arial, sans-serif;
-  --font-serif: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-outfit), -apple-system, BlinkMacSystemFont, "SF Pro", Arial, sans-serif;
+  --font-serif: var(--font-outfit), -apple-system, BlinkMacSystemFont, "SF Pro", Arial, sans-serif;
 }
 
 body {
@@ -34,6 +34,10 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
 }
 
 /* Custom scrollbar */

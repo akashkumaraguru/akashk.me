@@ -41,6 +41,12 @@ export default function Loader({ onComplete }: LoaderProps) {
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
+          {/* Background image with reduced 40% opacity */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-40"
+            style={{ backgroundImage: 'url("/loader-bg.jpg")' }}
+          />
+
           {/* Subtle background glow */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(219,119,87,0.05)_0%,transparent_70%)] pointer-events-none" />
 
@@ -52,7 +58,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-[#1d1d1f] font-sans"
+                className="text-[38px] sm:text-[62px] md:text-[74px] lg:text-[98px] font-extrabold tracking-tighter text-[#1d1d1f] font-serif"
               >
                 Akash Kumaraguru
               </motion.h1>
@@ -72,7 +78,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={stage >= 1 ? { opacity: 0.9, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-[0.25em] text-[#5c5a53] uppercase font-mono"
+                className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-bold tracking-[0.25em] text-[#5c5a53] uppercase font-mono"
               >
                 Product Designer &amp; &lt;/Builder &gt;
               </motion.p>

@@ -1,54 +1,49 @@
 'use client';
 
-import { useState } from 'react';
-import { Settings } from 'lucide-react';
-
-const SKILL_ITEMS = [
-  { name: 'Figma', category: 'design', color: 'hover:border-[#d97757]/50 hover:text-[#d97757]' },
-  { name: 'Design Systems', category: 'design', color: 'hover:border-[#6a9bcc]/50 hover:text-[#6a9bcc]' },
-  { name: 'UX Research', category: 'research', color: 'hover:border-[#788c5d]/50 hover:text-[#788c5d]' },
-  { name: 'Prototyping', category: 'design', color: 'hover:border-[#d97757]/50 hover:text-[#d97757]' },
-  { name: 'React', category: 'dev', color: 'hover:border-[#6a9bcc]/50 hover:text-[#6a9bcc]' },
-  { name: 'Tailwind CSS', category: 'dev', color: 'hover:border-[#788c5d]/50 hover:text-[#788c5d]' },
-  { name: 'AI Tools', category: 'strategy', color: 'hover:border-[#d97757]/50 hover:text-[#d97757]' },
-  { name: 'Product Strategy', category: 'strategy', color: 'hover:border-[#6a9bcc]/50 hover:text-[#6a9bcc]' }
+const SKILLS = [
+  { name: 'Product Thinking', category: 'design' },
+  { name: 'User-Centered Design', category: 'design' },
+  { name: 'Wireframing', category: 'design' },
+  { name: 'Prototyping', category: 'design' },
+  { name: 'User Research', category: 'design' },
+  { name: 'Heuristic Evaluation', category: 'design' },
+  { name: 'UX Audits', category: 'design' },
+  { name: 'Data-Driven Design Decisions', category: 'design' },
+  { name: 'Design Systems', category: 'design' },
+  { name: 'Developer Handoff', category: 'design' },
+  { name: 'React.js', category: 'dev' },
+  { name: 'TypeScript', category: 'dev' },
+  { name: 'Tailwind CSS', category: 'dev' },
+  { name: 'Responsive Development', category: 'dev' },
+  { name: 'Git & GitHub', category: 'dev' },
+  { name: 'Prompt Engineering', category: 'dev' },
 ];
 
 export default function SkillsCard() {
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-
-  const toggleSkill = (name: string) => {
-    setSelectedSkills(prev => 
-      prev.includes(name) ? prev.filter(n => n !== name) : [...prev, name]
-    );
-  };
-
   return (
-    <div className="flex flex-col justify-between h-full space-y-4 font-sans pt-1">
+    <div className="flex flex-col justify-between h-full space-y-3 font-sans pt-1">
+      <div>
+        <span className="text-[15px] text-[#b0aea5] block uppercase font-bold tracking-wider font-sans mb-1">
+          Skills Stack
+        </span>
+        <p className="text-[15px] text-[#5c5a53] leading-tight font-serif italic">
+          Core design and development skills I bring to every project.
+        </p>
+      </div>
 
-      {/* Info text */}
-      <p className="text-[10px] text-[#5c5a53] leading-tight font-serif italic">
-        Click to highlight relevant technologies for specific projects.
-      </p>
-
-      {/* Skill Cloud */}
-      <div className="flex flex-wrap gap-2 flex-grow items-center content-center justify-start">
-        {SKILL_ITEMS.map((skill) => {
-          const isSelected = selectedSkills.includes(skill.name);
-          return (
-            <button
-              key={skill.name}
-              onClick={() => toggleSkill(skill.name)}
-              className={`text-[10px] md:text-xs font-semibold px-2.5 py-1.5 rounded-lg border transition-all duration-300 active:scale-95 cursor-pointer ${
-                isSelected
-                  ? 'bg-[#d97757]/10 text-[#d97757] border-[#d97757]/50 scale-105 shadow-sm shadow-[#d97757]/5'
-                  : `bg-[#faf9f5] text-[#5c5a53] border-[#b0aea5]/20 ${skill.color}`
-              }`}
-            >
-              {skill.name}
-            </button>
-          );
-        })}
+      <div className="flex flex-wrap gap-2 my-2">
+        {SKILLS.map((skill) => (
+          <div
+            key={skill.name}
+            className={`text-[14px] font-bold px-3 py-2 rounded-xl border ${
+              skill.category === 'design'
+                ? 'bg-[#d97757]/10 text-[#d97757] border-[#d97757]/20'
+                : 'bg-[#6a9bcc]/10 text-[#6a9bcc] border-[#6a9bcc]/20'
+            }`}
+          >
+            {skill.name}
+          </div>
+        ))}
       </div>
     </div>
   );
