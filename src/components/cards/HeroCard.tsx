@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { MapPin, Clock, Mail, Phone, Copy, Check } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Briefcase, Mail, Phone } from 'lucide-react';
 
 const EMAIL = 'dev.iamakash@gmail.com';
 const PHONE = '+91 9345509223';
@@ -45,7 +45,7 @@ const SOCIALS = [
   },
   {
     name: 'Behance',
-    url: 'https://behance.net/akashkumaraguru',
+    url: 'https://www.behance.net/akashkumaragurudesg',
     icon: (
       <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
         <path d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/>
@@ -57,7 +57,7 @@ const SOCIALS = [
   },
   {
     name: 'Instagram',
-    url: 'https://instagram.com/akashkumaraguru',
+    url: 'https://www.instagram.com/_leo__designs?igsh=dmtleW1kaGZvYjE0',
     icon: (
       <svg className="w-3.5 h-3.5 stroke-current fill-none" strokeWidth="2.2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -72,207 +72,125 @@ const SOCIALS = [
 ];
 
 export default function HeroCard() {
-  const [time, setTime] = useState<string>('');
   const [imageError, setImageError] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
-  useEffect(() => {
-    const updateTime = () => {
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true,
-      };
-      setTime(new Date().toLocaleTimeString('en-US', options));
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
-    <div className="flex flex-col justify-between h-full space-y-6">
-      {/* Top Section: Avatar and Metadata */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          {/* Avatar Container */}
-          <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-gradient-to-tr from-[#d97757] via-[#6a9bcc] to-[#788c5d] p-[2px] shadow-sm shadow-black/5 group">
-            <div className="w-full h-full rounded-2xl bg-[#faf9f5] overflow-hidden flex items-center justify-center">
-              {!imageError ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src="/akash.jpg"
-                  alt="Akash Kumaraguru"
-                  onError={() => setImageError(true)}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              ) : (
-                /* Sleek Initial-based SVG Avatar */
-                <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
-                  <defs>
-                    <linearGradient id="avatar-grad-light" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#d97757" />
-                      <stop offset="50%" stopColor="#6a9bcc" />
-                      <stop offset="100%" stopColor="#788c5d" />
-                    </linearGradient>
-                  </defs>
-                  <rect width="100" height="100" fill="url(#avatar-grad-light)" />
-                  <text
-                    x="50%"
-                    y="55%"
-                    dominantBaseline="middle"
-                    textAnchor="middle"
-                    fill="#ffffff"
-                    fontSize="32"
-                    fontWeight="800"
-                    fontFamily="var(--font-sans), sans-serif"
-                    letterSpacing="0.05em"
-                  >
-                    AK
-                  </text>
-                  {/* Design rings */}
-                  <circle cx="50" cy="50" r="42" stroke="white" strokeOpacity="0.3" strokeWidth="2" />
-                  <circle cx="50" cy="50" r="35" stroke="white" strokeOpacity="0.2" strokeWidth="1" strokeDasharray="4 4" />
-                </svg>
-              )}
-            </div>
+    <div className="flex flex-col md:flex-row gap-6 h-full">
+      {/* Left: big image */}
+      <div className="w-full aspect-square sm:aspect-[4/3] md:aspect-auto md:h-auto md:w-56 lg:w-64 flex-shrink-0">
+        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-tr from-[#d97757] via-[#6a9bcc] to-[#788c5d] p-[2px] shadow-sm shadow-black/5 group">
+          <div className="w-full h-full rounded-2xl bg-[#faf9f5] overflow-hidden flex items-center justify-center">
+            {!imageError ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src="/akash.jpg"
+                alt="Akash Kumaraguru"
+                onError={() => setImageError(true)}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            ) : (
+              /* Sleek Initial-based SVG Avatar */
+              <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+                <defs>
+                  <linearGradient id="avatar-grad-light" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#d97757" />
+                    <stop offset="50%" stopColor="#6a9bcc" />
+                    <stop offset="100%" stopColor="#788c5d" />
+                  </linearGradient>
+                </defs>
+                <rect width="100" height="100" fill="url(#avatar-grad-light)" />
+                <text
+                  x="50%"
+                  y="55%"
+                  dominantBaseline="middle"
+                  textAnchor="middle"
+                  fill="#ffffff"
+                  fontSize="32"
+                  fontWeight="800"
+                  fontFamily="var(--font-sans), sans-serif"
+                  letterSpacing="0.05em"
+                >
+                  AK
+                </text>
+                {/* Design rings */}
+                <circle cx="50" cy="50" r="42" stroke="white" strokeOpacity="0.3" strokeWidth="2" />
+                <circle cx="50" cy="50" r="35" stroke="white" strokeOpacity="0.2" strokeWidth="1" strokeDasharray="4 4" />
+              </svg>
+            )}
           </div>
- 
+        </div>
+      </div>
+
+      {/* Right: everything else */}
+      <div className="flex-1 min-w-0 flex flex-col justify-around gap-5">
+        {/* Name, title & meta */}
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
           <div>
-            <h2 className="text-[26px] font-bold tracking-tight text-[#1d1d1f] font-serif">
+            <h2 className="text-[30px] font-bold tracking-tight text-[#1d1d1f] font-serif leading-tight">
               Akash Kumaraguru
             </h2>
-            <p className="text-[16px] font-semibold text-[#d97757]">Product Designer</p>
+            <p className="text-[16px] font-semibold text-[#d97757] mt-0.5">Product Designer &amp; Builder</p>
+          </div>
+
+          <div className="flex flex-row sm:flex-col items-start gap-1.5 text-[12px] text-[#5c5a53] flex-shrink-0">
+            <div className="flex items-center gap-1.5 bg-[#b0aea5]/10 py-1 px-2.5 rounded-full">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#788c5d] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#788c5d]"></span>
+              </span>
+              <MapPin size={11} className="text-[#5c5a53]" />
+              <span>Bengaluru, IN</span>
+            </div>
+
+            <div className="flex items-center gap-1.5 bg-[#b0aea5]/10 py-1 px-2.5 rounded-full">
+              <Briefcase size={11} className="text-[#5c5a53]" />
+              <span className="font-mono">1.5+ years experience</span>
+            </div>
           </div>
         </div>
- 
-        {/* Status Pills */}
-        <div className="flex flex-row sm:flex-col items-start gap-2 text-[14px] text-[#5c5a53]">
-          <div className="flex items-center gap-1.5 bg-[#faf9f5] border border-[#b0aea5]/20 py-1 px-2.5 rounded-full">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#788c5d] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#788c5d]"></span>
-            </span>
-            <MapPin size={12} className="text-[#5c5a53]" />
-            <span>Bengaluru, IN</span>
-          </div>
- 
-          <div className="flex items-center gap-1.5 bg-[#faf9f5] border border-[#b0aea5]/20 py-1 px-2.5 rounded-full">
-            <Clock size={12} className="text-[#5c5a53]" />
-            <span className="font-mono text-[#1d1d1f] min-w-[70px]">
-              {time || '12:00:00 PM'}
-            </span>
-          </div>
-        </div>
-      </div>
- 
-      {/* Middle Section: Tagline & Biography */}
-      <div className="space-y-4">
-        <p className="text-[22px] md:text-[26px] font-normal text-[#1d1d1f] leading-relaxed font-serif">
-          “Designer by profession. Builder by passion. <span className="text-[#d97757] font-semibold border-b border-[#d97757]/30 pb-0.5">Problem solver by default.</span>.”
-        </p>
-        <p className="text-[#5c5a53] text-[16px] md:text-[18px] leading-relaxed font-sans max-w-3xl">
-          I am a designer-developer hybrid who believes in crafting interfaces that are as functional as they are beautiful. I translate complex user problems into clean, high-fidelity design systems and intuitive user journeys.
-        </p>
-      </div>
- 
-      {/* Bottom Section: Socials Grid + Contact */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 pt-2">
-        {SOCIALS.map((social) => {
-          return (
+
+        {/* Tagline */}
+        <blockquote className="border-l-2 border-[#d97757]/40 pl-3.5 text-[17px] md:text-[19px] font-normal text-[#1d1d1f] italic leading-snug font-serif">
+          Designer by passion. Builder by curiosity. <span className="text-[#d97757] font-semibold not-italic">Creating clarity from complexity.</span>
+        </blockquote>
+
+        {/* Socials + Contact, icon-only */}
+        <div className="space-y-2">
+          <span className="text-[11px] text-[#b0aea5] block uppercase font-bold tracking-wider">
+            Find Me Online
+          </span>
+          <div className="flex flex-wrap gap-3">
+          {SOCIALS.map((social) => (
             <a
               key={social.name}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-3 rounded-xl bg-[#faf9f5] border border-[#b0aea5]/15 hover:border-[#b0aea5]/30 hover:shadow-sm transition-all duration-200 group cursor-pointer"
+              title={social.name}
+              className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#faf9f5] border border-[#b0aea5]/15 hover:border-[#b0aea5]/30 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+              style={{ color: social.color }}
             >
-              <div className="flex items-center gap-2.5 min-w-0">
-                <div className={`p-2 rounded-lg ${social.bg} flex-shrink-0`} style={{ color: social.color }}>
-                  {social.icon}
-                </div>
-                <div className="min-w-0">
-                  <span className="text-[14px] font-bold text-[#1d1d1f] block leading-tight truncate font-sans">
-                    {social.name}
-                  </span>
-                  <span className="text-[14px] text-[#b0aea5] font-serif italic block mt-0.5 leading-none truncate">
-                    {social.label}
-                  </span>
-                </div>
-              </div>
-              <svg className="w-3 h-3 text-[#b0aea5] flex-shrink-0 group-hover:text-[#d97757] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
+              <span className="[&_svg]:w-6 [&_svg]:h-6">{social.icon}</span>
             </a>
-          );
-        })}
+          ))}
 
-        {/* Email */}
-        <a
-          href={`mailto:${EMAIL}`}
-          className="flex items-center justify-between p-3 rounded-xl bg-[#faf9f5] border border-[#b0aea5]/15 hover:border-[#b0aea5]/30 hover:shadow-sm transition-all duration-200 group cursor-pointer"
-        >
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="p-2 rounded-lg bg-[#d97757]/10 flex-shrink-0 text-[#d97757]">
-              <Mail size={14} />
-            </div>
-            <div className="min-w-0">
-              <span className="text-[14px] font-bold text-[#1d1d1f] block leading-tight truncate font-sans">
-                Email
-              </span>
-              <span className="text-[14px] text-[#b0aea5] font-serif italic block mt-0.5 leading-none truncate">
-                {EMAIL}
-              </span>
-            </div>
-          </div>
-          <button
-            onClick={copyEmail}
-            title="Copy Email"
-            className="p-1 text-[#b0aea5] hover:text-[#d97757] transition-colors cursor-pointer flex-shrink-0"
+          <a
+            href={`mailto:${EMAIL}`}
+            title="Email"
+            className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#faf9f5] border border-[#b0aea5]/15 hover:border-[#b0aea5]/30 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[#d97757]"
           >
-            {copied ? <Check size={13} className="text-[#788c5d]" /> : <Copy size={13} />}
-          </button>
-        </a>
+            <Mail size={24} />
+          </a>
 
-        {/* Call */}
-        <a
-          href={`tel:${PHONE.replace(/\s+/g, '')}`}
-          className="flex items-center justify-between p-3 rounded-xl bg-[#faf9f5] border border-[#b0aea5]/15 hover:border-[#b0aea5]/30 hover:shadow-sm transition-all duration-200 group cursor-pointer"
-        >
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="p-2 rounded-lg bg-[#6a9bcc]/10 flex-shrink-0 text-[#6a9bcc]">
-              <Phone size={14} />
-            </div>
-            <div className="min-w-0">
-              <span className="text-[14px] font-bold text-[#1d1d1f] block leading-tight truncate font-sans">
-                Call
-              </span>
-              <span className="text-[14px] text-[#b0aea5] font-serif italic block mt-0.5 leading-none truncate">
-                {PHONE}
-              </span>
-            </div>
+          <a
+            href={`tel:${PHONE.replace(/\s+/g, '')}`}
+            title="Call"
+            className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#faf9f5] border border-[#b0aea5]/15 hover:border-[#b0aea5]/30 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[#6a9bcc]"
+          >
+            <Phone size={24} />
+          </a>
           </div>
-          <svg className="w-3 h-3 text-[#b0aea5] flex-shrink-0 group-hover:text-[#d97757] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="7" y1="17" x2="17" y2="7"></line>
-            <polyline points="7 7 17 7 17 17"></polyline>
-          </svg>
-        </a>
+        </div>
       </div>
     </div>
   );

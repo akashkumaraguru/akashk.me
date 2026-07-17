@@ -3,6 +3,7 @@
 const SKILLS = [
   { name: 'Product Thinking', category: 'design' },
   { name: 'User-Centered Design', category: 'design' },
+  { name: 'Mobile Application', category: 'design' },
   { name: 'Wireframing', category: 'design' },
   { name: 'Prototyping', category: 'design' },
   { name: 'User Research', category: 'design' },
@@ -15,6 +16,7 @@ const SKILLS = [
   { name: 'TypeScript', category: 'dev' },
   { name: 'Tailwind CSS', category: 'dev' },
   { name: 'Responsive Development', category: 'dev' },
+  { name: 'Mobile Dev', category: 'dev' },
   { name: 'Git & GitHub', category: 'dev' },
   { name: 'Prompt Engineering', category: 'dev' },
 ];

@@ -4,56 +4,74 @@ const TOOLS = [
   {
     name: 'Figma',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/figma.svg" alt="Figma" className="w-5 h-5 object-contain" />,
+    icon: <img src="/figma.svg" alt="Figma" className="w-7 h-7 object-contain" />,
     color: 'hover:border-[#FF7262]/30',
   },
   {
     name: 'Penpot',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/penpot.svg" alt="Penpot" className="w-4 h-4 object-contain" />,
+    icon: <img src="/penpot.svg" alt="Penpot" className="w-6 h-6 object-contain" />,
     color: 'hover:border-[#788c5d]/30',
   },
   {
     name: 'Miro',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/miro.svg" alt="Miro" className="w-4 h-4 object-contain" />,
+    icon: <img src="/miro.svg" alt="Miro" className="w-6 h-6 object-contain" />,
     color: 'hover:border-[#d97757]/30',
   },
   {
     name: 'After Effects',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/after-effects.svg" alt="After Effects" className="w-5 h-5 object-contain rounded" />,
+    icon: <img src="/after-effects.svg" alt="After Effects" className="w-7 h-7 object-contain rounded" />,
     color: 'hover:border-[#40a3ff]/30',
   },
   {
     name: 'LottieFiles',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/lottiefiles.svg" alt="LottieFiles" className="w-4 h-4 object-contain" />,
+    icon: <img src="/lottiefiles.svg" alt="LottieFiles" className="w-6 h-6 object-contain" />,
     color: 'hover:border-[#00ddb3]/30',
   },
   {
     name: 'Premiere Pro',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/premiere-pro.svg" alt="Premiere Pro" className="w-5 h-5 object-contain rounded" />,
+    icon: <img src="/premiere-pro.svg" alt="Premiere Pro" className="w-7 h-7 object-contain rounded" />,
     color: 'hover:border-[#e054ff]/30',
   },
   {
     name: 'Rive',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/rive.svg" alt="Rive" className="w-4 h-4 object-contain" />,
+    icon: <img src="/rive.svg" alt="Rive" className="w-6 h-6 object-contain" />,
     color: 'hover:border-black/30',
   },
   {
     name: 'VSCode',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/vscode.svg" alt="VSCode" className="w-5 h-5 object-contain" />,
+    icon: <img src="/vscode.svg" alt="VSCode" className="w-7 h-7 object-contain" />,
     color: 'hover:border-[#6a9bcc]/30',
   },
   {
     name: 'GitHub',
     // eslint-disable-next-line @next/next/no-img-element
-    icon: <img src="/github.svg" alt="GitHub" className="w-4 h-4 object-contain" />,
+    icon: <img src="/github.svg" alt="GitHub" className="w-6 h-6 object-contain" />,
     color: 'hover:border-black/30',
+  },
+  {
+    name: 'Framer',
+    // eslint-disable-next-line @next/next/no-img-element
+    icon: <img src="/framer.svg" alt="Framer" className="w-6 h-6 object-contain" />,
+    color: 'hover:border-black/30',
+  },
+  {
+    name: 'Photoshop',
+    // eslint-disable-next-line @next/next/no-img-element
+    icon: <img src="/photoshop.svg" alt="Photoshop" className="w-7 h-7 object-contain rounded" />,
+    color: 'hover:border-[#001e36]/30',
+  },
+  {
+    name: 'Illustrator',
+    // eslint-disable-next-line @next/next/no-img-element
+    icon: <img src="/illustrator.svg" alt="Illustrator" className="w-7 h-7 object-contain rounded" />,
+    color: 'hover:border-[#330000]/30',
   },
 ];
 

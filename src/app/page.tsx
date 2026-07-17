@@ -9,6 +9,7 @@ import NiramKalavaiCard from '@/components/cards/NiramKalavaiCard';
 import SkillsCard from '@/components/cards/SkillsCard';
 import AiStackCard from '@/components/cards/AiStackCard';
 import ToolsCard from '@/components/cards/ToolsCard';
+import GiftCard from '@/components/cards/GiftCard';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,7 @@ export default function Home() {
             {/* Background image wash */}
             <div
               className="fixed inset-0 -z-10 bg-cover bg-center opacity-25 pointer-events-none"
-              style={{ backgroundImage: "url('/loader-bg.jpg')" }}
+              style={{ backgroundImage: "url('/cloudy-sky.jpg')" }}
               aria-hidden="true"
             />
 
@@ -60,32 +61,33 @@ export default function Home() {
                   <HeroCard />
                 </BentoCard>
 
-                {/* Row 2: Niram Kalavai (2 cols) + AI Tech Stack (1 col) + Tools (1 col) */}
-                <BentoCard 
-                  colSpan="col-span-1 lg:col-span-2" 
+                {/* Row 2: Niram Kalavai + Other Projects (full width) */}
+                <BentoCard
+                  colSpan="col-span-1 md:col-span-2 lg:col-span-4"
                   rowSpan="row-span-1 lg:row-span-2"
                   delay={0.1}
                 >
                   <NiramKalavaiCard />
                 </BentoCard>
 
-                <BentoCard 
-                  colSpan="col-span-1" 
+                {/* Row 3: Tools (2 cols) + AI Tech Stack (2 cols) */}
+                <BentoCard
+                  colSpan="col-span-1 lg:col-span-2"
                   rowSpan="row-span-1 lg:row-span-2"
                   delay={0.15}
-                >
-                  <AiStackCard />
-                </BentoCard>
-
-                <BentoCard 
-                  colSpan="col-span-1" 
-                  rowSpan="row-span-1 lg:row-span-2"
-                  delay={0.2}
                 >
                   <ToolsCard />
                 </BentoCard>
 
-                {/* Row 3: Skills (full width) */}
+                <BentoCard
+                  colSpan="col-span-1 lg:col-span-2"
+                  rowSpan="row-span-1 lg:row-span-2"
+                  delay={0.2}
+                >
+                  <AiStackCard />
+                </BentoCard>
+
+                {/* Row 4: Skills (full width) */}
                 <BentoCard
                   colSpan="col-span-1 md:col-span-2 lg:col-span-4"
                   rowSpan="row-span-1 lg:row-span-2"
@@ -93,11 +95,20 @@ export default function Home() {
                 >
                   <SkillsCard />
                 </BentoCard>
+
+                {/* Row 5: Gift (full width) */}
+                <BentoCard
+                  colSpan="col-span-1 md:col-span-2 lg:col-span-4"
+                  rowSpan="row-span-1"
+                  delay={0.3}
+                >
+                  <GiftCard />
+                </BentoCard>
               </div>
 
               {/* Page Footer */}
               <footer className="mt-12 text-center border-t border-[#b0aea5]/20 pt-6 text-[14px] text-[#5c5a53] font-mono tracking-widest uppercase font-bold opacity-50">
-                 Built with ❤️ by Akash Kumaraguru
+                 Built with ❤️ by Akash Kumaraguru ( This isn&apos;t my portfolio—it&apos;s a quick way to connect. The portfolio is currently under construction)
               </footer>
             </div>
           </motion.main>

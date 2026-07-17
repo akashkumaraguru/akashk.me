@@ -80,7 +80,7 @@ export default function Loader({ onComplete }: LoaderProps) {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-bold tracking-[0.25em] text-[#5c5a53] uppercase font-mono"
               >
-                Product Designer &amp; &lt;/Builder &gt;
+                Product Designer  &amp; &lt;/Builder &gt;
               </motion.p>
             </div>
           </div>
