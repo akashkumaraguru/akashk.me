@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --background: #e8e6dc;
+  --foreground: #1d1d1f;
+  --card-bg: #ffffff;
+  --card-bg-hover: #faf9f5;
+  --card-border: rgba(176, 174, 165, 0.25);
+  --card-border-hover: rgba(176, 174, 165, 0.5);
+  --accent: #d97757;
+  --accent-blue: #6a9bcc;
+  --accent-green: #788c5d;
+  --accent-foreground: #ffffff;
+  --selection-bg: rgba(217, 119, 87, 0.2);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-hover: var(--card-bg-hover);
+  --color-card-border: var(--card-border);
+  --color-card-border-hover: var(--card-border-hover);
+  --color-accent: var(--accent);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-green: var(--accent-green);
+  --font-sans: var(--font-poppins), -apple-system, BlinkMacSystemFont, "SF Pro", Arial, sans-serif;
+  --font-serif: var(--font-lora), Georgia, serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(176, 174, 165, 0.5);
+  border-radius: 9999px;
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(176, 174, 165, 0.8);
+}
+
+/* Premium radial gradient overlay for background */
+.radial-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(217, 119, 87, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(106, 155, 204, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(120, 140, 93, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Glassmorphism/Neumorphism style card */
+.glass {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(176, 174, 165, 0.15), 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.glass-hover-border:hover {
+  border-color: var(--card-border-hover);
+  background: var(--card-bg-hover);
+  box-shadow: 0 10px 30px rgba(176, 174, 165, 0.25), 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Hide scrollbar for elements */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Paint mixing fluid animations matching new theme */
+@keyframes fluid-blend-1 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes fluid-blend-2 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.05); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes fluid-blend-3 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(-20px, -30px) scale(0.9); }
+  66% { transform: translate(40px, 30px) scale(1.15); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-fluid-1 {
+  animation: fluid-blend-1 8s infinite ease-in-out;
+}
+.animate-fluid-2 {
+  animation: fluid-blend-2 10s infinite ease-in-out;
+}
+.animate-fluid-3 {
+  animation: fluid-blend-3 12s infinite ease-in-out;
+}
